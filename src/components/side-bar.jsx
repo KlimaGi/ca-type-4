@@ -2,10 +2,10 @@ import React, { useRef } from 'react'
 
 const SideBar = ({ reserve, cancelReserve, reservationStatus }) => {
   const colorRef = useRef();
-  console.log('reservationStatus-sideBar', reservationStatus);
+
   return (
     <div className='side-bar'>
-      {!!reservationStatus.color ?
+      {reservationStatus ?
         <div>
           <button className='button' onClick={cancelReserve}>Delete reservation</button>
         </div>

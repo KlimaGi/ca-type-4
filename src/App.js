@@ -50,6 +50,7 @@ function App() {
 
   const [boxes, setBoxes] = useState([]);
   const [selectedBox, setSelectedBox] = useState('00');
+  let reservationStatus = (boxes.find(x => x.xy === selectedBox))?.color;
 
   useEffect(() => {
     // let arr = [...items];
@@ -71,7 +72,7 @@ function App() {
     setBoxes(boxesUpdate);
   }
 
-  console.log('reservationStatus', boxes.find(x => x.xy === selectedBox));
+  console.log('reservationStatus', reservationStatus);
 
   return (
     <>
@@ -82,7 +83,7 @@ function App() {
         <SideBar
           reserve={reserve}
           cancelReserve={cancelReserve}
-          reservationStatus={boxes.find(x => x.xy === selectedBox)}
+          reservationStatus={reservationStatus}
         />
       </div>
     </>

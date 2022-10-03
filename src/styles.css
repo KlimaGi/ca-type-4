@@ -37,6 +37,7 @@
 
 .selected{
   background-color: #d0d0e7;
+  border: 2px solid #a5a5c0;
 }
 
 .button{
