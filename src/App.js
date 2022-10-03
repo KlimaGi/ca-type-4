@@ -49,6 +49,7 @@ function App() {
   ];
 
   const [boxes, setBoxes] = useState([]);
+  const [selectedBox, setSelectedBox] = useState('00');
 
   useEffect(() => {
     // let arr = [...items];
@@ -56,15 +57,26 @@ function App() {
     setBoxes(arr)
   }, []);
 
-  console.log('boxes', boxes);
+  function reserve(pickedColor) {
+    const boxesUpdate = [...boxes];
+    const selected = boxesUpdate.find(x => x.xy === selectedBox);
+    selected.color = pickedColor;
+    console.log('selected', selected);
+    setBoxes(boxesUpdate);
+    console.log('boxes', boxes);
+  }
+
+  function cancelReserve() {
+
+  }
 
   return (
     <>
 
       <h3>pick the day</h3>
       <div className="main d-flex">
-        <Container boxes={boxes} />
-        <SideBar />
+        <Container boxes={boxes} setSelectedBox={setSelectedBox} selectedBox={selectedBox} />
+        <SideBar reserve={reserve} cancelReserve={cancelReserve} />
       </div>
     </>
   );

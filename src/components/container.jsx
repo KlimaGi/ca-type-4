@@ -1,28 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import DayItem from './day-item';
+import ContainerItem from './container-item';
 
-const Container = ({ boxes }) => {
+const Container = ({ boxes, setSelectedBox, selectedBox }) => {
 
 
   return (
 
     <div className='container'>
-      {boxes.map(box => <div className='container-item' key={box.xy}>{box.xy}</div>)}
+      {boxes.map(box => <ContainerItem key={box.xy} xy={box.xy} setSelectedBox={setSelectedBox} selectedBox={selectedBox} />)}
     </div>
-
-    // <div className='container'>
-    //   {boxes.map((box) => (
-    //     <div className='container-item' key={box.xy}>  {box.xy} {box.color} </div>
-    //   ))}
-    // </div>
-    // <br />
-    // <div className='container'>
-    //   {boxes.map((box) => {
-    //     return (<DayItem key={box.xy} data={box} />)
-    //   })}
-    // </div>
-
-
 
   )
 }
