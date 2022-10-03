@@ -1,24 +1,72 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import './styles.css'
+import Container from './components/container';
+import SideBar from './components/side-bar';
 
 function App() {
+  const items = [
+    {
+      xy: '00', color: 'white',
+    }, {
+      xy: '01', color: 'powderblue',
+    }, {
+      xy: '02', color: 'purple',
+    }, {
+      xy: '03', color: '',
+    }, {
+      xy: '04', color: '',
+    }, {
+      xy: '10', color: '',
+    }, {
+      xy: '11', color: '',
+    }, {
+      xy: '12', color: '',
+    }, {
+      xy: '13', color: '',
+    }, {
+      xy: '14', color: '',
+    }, {
+      xy: '20', color: '',
+    }, {
+      xy: '21', color: '',
+    }, {
+      xy: '22', color: '',
+    }, {
+      xy: '23', color: '',
+    }, {
+      xy: '24', color: '',
+    }, {
+      xy: '30', color: '',
+    }, {
+      xy: '31', color: '',
+    }, {
+      xy: '32', color: '',
+    }, {
+      xy: '33', color: '',
+    }, {
+      xy: '34', color: '',
+    },
+  ];
+
+  const [boxes, setBoxes] = useState([]);
+
+  useEffect(() => {
+    // let arr = [...items];
+    let arr = items.map(item => item);
+    setBoxes(arr)
+  }, []);
+
+  console.log('boxes', boxes);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+      <h3>pick the day</h3>
+      <div className="main d-flex">
+        <Container boxes={boxes} />
+        <SideBar />
+      </div>
+    </>
   );
 }
 

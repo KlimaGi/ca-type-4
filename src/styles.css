@@ -1,0 +1,37 @@
+*{
+  box-sizing: border-box;
+}
+.main {
+  color: #535387;
+  text-align: center;
+  
+}
+.d-flex {
+  display: flex;
+ justify-content: space-around;
+}
+.container {
+  display: flex;
+  width: 35rem;
+  /* height: 20rem; */
+  
+  flex-wrap: wrap;
+  background-color: #e2e2f0;
+  align-items: center;
+}
+.side-bar{
+  width: 15rem;
+  height: 20rem;
+  
+  background-color: #e2e2f0;
+  align-items: center;
+}
+
+.container-item {
+  width: 6rem;
+  height: 5rem;
+  padding: 1rem;
+  margin: 0.5rem;
+  border: 1px solid #535387;
+ 
+}
