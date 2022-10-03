@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ContainerItem = ({ xy, setSelectedBox, selectedBox }) => {
+const ContainerItem = ({ item, xy, setSelectedBox, selectedBox }) => {
 
   const selectedItem = xy === selectedBox
     ? "container-item selected"
@@ -12,6 +12,7 @@ const ContainerItem = ({ xy, setSelectedBox, selectedBox }) => {
       className={selectedItem}
       onClick={() => setSelectedBox(xy)}
       selectedBox={selectedBox}
+      style={{ backgroundColor: item.color }}
     >
       {xy}
     </div>

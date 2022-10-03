@@ -61,14 +61,17 @@ function App() {
     const boxesUpdate = [...boxes];
     const selected = boxesUpdate.find(x => x.xy === selectedBox);
     selected.color = pickedColor;
-    console.log('selected', selected);
     setBoxes(boxesUpdate);
-    console.log('boxes', boxes);
   }
 
   function cancelReserve() {
-
+    const boxesUpdate = [...boxes];
+    const selected = boxesUpdate.find(x => x.xy === selectedBox);
+    selected.color = '';
+    setBoxes(boxesUpdate);
   }
+
+  console.log('reservationStatus', boxes.find(x => x.xy === selectedBox));
 
   return (
     <>
@@ -76,7 +79,11 @@ function App() {
       <h3>pick the day</h3>
       <div className="main d-flex">
         <Container boxes={boxes} setSelectedBox={setSelectedBox} selectedBox={selectedBox} />
-        <SideBar reserve={reserve} cancelReserve={cancelReserve} />
+        <SideBar
+          reserve={reserve}
+          cancelReserve={cancelReserve}
+          reservationStatus={boxes.find(x => x.xy === selectedBox)}
+        />
       </div>
     </>
   );
